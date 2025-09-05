@@ -16,7 +16,7 @@ export default async function handler(req, res) {
   });
 
   const mailToAlphaGlory = {
-    from: `"${name}" <${process.env.GMAIL_EMAIL}>`, // Use your Gmail as the sender
+    from: `"${name}" <${process.env.GMAIL_EMAIL}>`,
     to: process.env.TO_EMAIL,
     replyTo: email,
     subject: `New Contact Form Message: ${subject}`,

@@ -6,8 +6,8 @@
   --header-height: 3.5rem;
 
   /*========== Colors ==========*/
-  --primary-color: hsl(219, 69%, 56%);
-  --primary-color-alt: hsl(219, 69%, 52%);
+  --primary-color: hsl(0, 69%, 56%);
+  --primary-color-alt: hsl(350, 69%, 52%);
   --title-color: hsl(219, 28%, 15%);
   --text-color: hsl(219, 8%, 55%);
   --text-color-light: hsl(219, 4%, 75%);
