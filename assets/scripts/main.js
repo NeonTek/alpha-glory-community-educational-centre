@@ -1,3 +1,45 @@
+/*=============== DYNAMIC PRELOADER ===============*/
+const createPreloader = () => {
+  const preloader = document.createElement("div");
+  preloader.className = "preloader";
+
+  const content = document.createElement("div");
+  content.className = "preloader__content";
+
+  const logo = document.createElement("div");
+  logo.className = "preloader__logo";
+  const letterA = document.createElement("span");
+  letterA.textContent = "A";
+  const letterG = document.createElement("span");
+  letterG.textContent = "G";
+  logo.appendChild(letterA);
+  logo.appendChild(letterG);
+
+  const dots = document.createElement("div");
+  dots.className = "preloader__dots";
+  for (let i = 0; i < 3; i++) {
+    dots.appendChild(document.createElement("span"));
+  }
+
+  content.appendChild(logo);
+  content.appendChild(dots);
+  preloader.appendChild(content);
+
+  document.body.appendChild(preloader);
+
+  return preloader;
+};
+
+const preloaderElement = createPreloader();
+
+window.addEventListener("load", () => {
+  preloaderElement.classList.add("preloader--hidden");
+
+  setTimeout(() => {
+    preloaderElement.remove();
+  }, 600);
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   /*=============== SHOW/HIDE MOBILE MENU ===============*/
   const navMenu = document.getElementById("nav-menu"),
@@ -130,6 +172,31 @@ document.addEventListener("DOMContentLoaded", () => {
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
   }
+
+  /*=============== DYNAMICALLY ADD DESIGNER CREDIT ===============*/
+  const addDesignerCredit = () => {
+    const footer = document.querySelector(".footer");
+    if (!footer) return;
+
+    // Create the paragraph element
+    const creditParagraph = document.createElement("p");
+    creditParagraph.className = "footer__credit";
+
+    // Create the link element
+    const neonTekLink = document.createElement("a");
+    neonTekLink.href = "https://www.neontek.co.ke";
+    neonTekLink.textContent = "NeonTek";
+    neonTekLink.target = "_blank";
+    neonTekLink.rel = "noopener noreferrer"; // For security
+
+    // Add the text and the link to the paragraph
+    creditParagraph.append("Designed by ", neonTekLink);
+
+    // Add the new paragraph to the end of the footer
+    footer.appendChild(creditParagraph);
+  };
+
+  addDesignerCredit();
 
   /*=============== ACTIVE NAV LINK ON SCROLL ===============*/
   const sections = document.querySelectorAll("section[id]");

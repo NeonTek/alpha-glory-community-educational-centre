@@ -15,7 +15,6 @@
   --container-color: #fff;
   --border-color: hsl(219, 15%, 90%);
 
-  /* NEW: Variables for glassmorphism effect */
   --header-bg-color: hsla(219, 100%, 99%, 0.8);
   --header-border-color: hsl(219, 15%, 85%);
 
@@ -40,7 +39,6 @@
   --z-fixed: 100;
 }
 
-/*=============== DARK THEME VARIABLES ===============*/
 /*=============== DARK THEME VARIABLES ===============*/
 html[data-theme="dark"] {
   --title-color: hsl(219, 8%, 95%);
@@ -361,7 +359,7 @@ img {
   padding-top: calc(var(--header-height) + 4rem);
   padding-bottom: 4rem;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(https://picsum.photos/1920/1080?random=9);
+    url(/assets/images/img1.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -402,7 +400,7 @@ img {
   padding: 2.5rem 1.5rem;
   border-radius: 0.5rem;
   border: 1px solid var(--border-color);
-  margin-top: -6rem;
+  margin-top: -3rem;
   position: relative;
   z-index: 5;
   box-shadow: 0 4px 12px hsla(219, 28%, 15%, 0.1);
@@ -674,7 +672,7 @@ img {
   padding-top: calc(var(--header-height) + 4rem);
   padding-bottom: 4rem;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(https://picsum.photos/1920/1080?random=10);
+    url(/assets/images/img1.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -1351,4 +1349,282 @@ img {
   color: hsl(0, 79%, 63%);
   background-color: hsl(0, 79%, 97%);
   border-color: hsl(0, 79%, 90%);
+}
+
+/*=============== 404 PAGE STYLES ===============*/
+.page-404__main {
+  padding-top: var(--header-height); /* Offset for fixed header */
+  min-height: calc(
+    100vh - var(--header-height) - 100px
+  ); /* Adjust height to prevent footer overlap */
+  display: flex;
+  align-items: center;
+}
+
+.page-404__container {
+  align-items: center;
+  gap: 3rem;
+  padding-block: 4rem; /* Add some vertical padding */
+}
+
+.page-404__content {
+  text-align: center;
+}
+
+.page-404__title {
+  font-size: 8rem; /* Large 404 number */
+  font-weight: var(--font-bold);
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.page-404__subtitle {
+  font-size: var(--h1-font-size);
+  margin-bottom: 1.5rem;
+  color: var(--title-color);
+}
+
+.page-404__description {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  color: var(--text-color);
+}
+
+/* --- Animation Container --- */
+.page-404__animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 250px; /* Define height for the animation area */
+}
+
+.page-404__character {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: floatingCharacter 3s ease-in-out infinite;
+  z-index: 2;
+}
+
+.page-404__character i {
+  font-size: 4rem;
+  color: var(--primary-color);
+  background-color: var(--body-color);
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.page-404__cloud {
+  position: absolute;
+  background-color: var(--container-color);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: moveClouds 15s linear infinite;
+}
+
+.page-404__cloud--1 {
+  width: 80px;
+  height: 40px;
+  top: 20px;
+  left: -20px;
+  animation-delay: 0s;
+}
+
+.page-404__cloud--2 {
+  width: 120px;
+  height: 60px;
+  bottom: 30px;
+  right: -40px;
+  animation-delay: -7s;
+}
+
+.page-404__path {
+  position: absolute;
+  width: 150%; /* Extend beyond the character */
+  height: 5px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--border-color),
+    var(--border-color) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  bottom: 0px;
+  left: -25%; /* Center it under the character */
+  animation: movePath 2s linear infinite;
+  z-index: 1;
+}
+
+/* Keyframe Animations for 404 page */
+@keyframes floatingCharacter {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes moveClouds {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(100px);
+  }
+}
+
+@keyframes movePath {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -40px 0;
+  }
+}
+
+/*=============== MEDIA QUERIES (404 Page) ===============*/
+@media screen and (min-width: 767px) {
+  .page-404__container {
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+  }
+  .page-404__content {
+    text-align: left;
+  }
+  .page-404__description {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/*=============== PRELOADER STYLES ===============*/
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+  background-color: var(--body-color);
+  display: grid;
+  place-items: center;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.preloader--hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.preloader__content {
+  text-align: center;
+}
+
+.preloader__logo {
+  font-size: 4rem;
+  font-weight: var(--font-bold);
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.preloader__logo span {
+  display: inline-block;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fadeInScale 0.8s forwards;
+}
+
+/* Stagger the letter animation */
+.preloader__logo span:last-child {
+  animation-delay: 0.2s;
+}
+
+.preloader__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.preloader__dots span {
+  width: 12px;
+  height: 12px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  animation: pulse 1.4s infinite ease-in-out both;
+}
+
+/* Stagger the dot animation */
+.preloader__dots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+.preloader__dots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+/* Keyframe Animations */
+@keyframes fadeInScale {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+/*=============== DYNAMIC FOOTER CREDIT ===============*/
+.footer__credit {
+  text-align: center;
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.footer__credit a {
+  color: var(--text-color);
+  font-weight: var(--font-semi-bold);
+  transition: color 0.3s;
+}
+
+.footer__credit a:hover {
+  color: var(--primary-color);
+}
+
+/*=============== SCROLLBAR STYLES ===============*/
+/* For Webkit-based browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 0.75rem;
+  background-color: var(--container-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary-color-alt);
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--container-color);
 }
