@@ -51,7 +51,7 @@ export default async function handler(req, res) {
           
           <tr>
             <td align="center" style="padding: 20px 0;">
-              <img src="/assets/images/logo.jpeg" alt="Alpha Glory Logo" style="display: block; width: 200px;">
+              <img src="https://alphagloryeducationalcenter.org/assets/images/logo.jpeg" alt="Alpha Glory Logo" style="display: block; width: 200px;">
             </td>
           </tr>
 
