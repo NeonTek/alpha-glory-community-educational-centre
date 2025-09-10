@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Create the link element
     const neonTekLink = document.createElement("a");
     neonTekLink.href = "https://www.neontek.co.ke";
-    neonTekLink.textContent = "NeonTek";
+    neonTekLink.textContent = "NeonTek.co.ke";
     neonTekLink.target = "_blank";
     neonTekLink.rel = "noopener noreferrer"; // For security
 
@@ -288,7 +288,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (response.ok) {
           formStatus.classList.remove("pending");
           formStatus.classList.add("success");
-          formStatus.textContent = "Thank you! Your message has been sent.";
+          formStatus.textContent = "Thank you! Your message has been sent. Check your email for confirmation.";
           form.reset();
         } else {
           throw new Error("Server responded with an error.");
